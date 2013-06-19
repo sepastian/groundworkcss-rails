@@ -5,28 +5,12 @@ GroundworkCSS Rails Gem
 Add GroundworkCSS to your rails project.
 
 
-Add this to your Gemfile:
-```
-gem 'groundworkcss', :github => 'groundworkcss/groundworkcss-rails'
-```
-
-And then run:
-```
-$ bundle exec rails g groundworkcss:install
-```
-
-Yay!
-
-
-# Installation
-
-
-Inside your Gemfile add the following line:
+Inside your Gemfile add the following lines:
 
 ```ruby
 group :assets do
   gem 'compass-rails'
-  gem 'groundworkcss', :git => 'git://github.com/groundworkcss/groundworkcss-rails.git'
+  gem 'groundworkcss'
 end
 ```
 
@@ -37,7 +21,7 @@ Then run `bundle install` to install the gem.
 If you want to include GroundworkCSS on all of your pages then run the following to append `groundworkcss` to your application sprockets files:
 
 ```bash
-rails g groundworkcss:install
+bundle exec rails g groundworkcss:install
 ```
 
 You can also manually include `groundworkcss` on individual pages:
@@ -47,13 +31,7 @@ stylesheet_link_tag "groundworkcss"
 javascript_include_tag "groundworkcss"
 ```
 
-Or add `require "groundworkcss"` to your sprockets file(s):
-
-**in application.css**  
-
-```css
-/*= require "groundworkcss" */
-```
+You can add `require "groundworkcss"` to your javascripts sprockets file(s):
 
 **in application.js**  
 
@@ -68,17 +46,17 @@ Alternatively, you may be more selective about which modules to use and can sele
 **in application.css**
 
 ```css
-/*
-*= require "groundworkcss/core/all"
-*= require "groundworkcss/base/all"
-*= require "groundworkcss/type/all"
-*/
+@import "groundworkcss/groundwork/core/all";
+@import "groundworkcss/groundwork/base/all";
+@import "groundworkcss/groundwork/type/all";
 ```
 
 **in application.js**
 
 ```javascript
-//= require "groundworkcss/jquery.cycl2.js"
+//= require "groundworkcss/jquery-responsiveText"
+//= require "groundworkcss/jquery.cycle2"
+//= require "groundworkcss/jquery.magnific-popup"
 ```
 
 ### Setup your layout with the Groundwork boilerplate
@@ -160,6 +138,6 @@ By default assets that are precompiled will be located in the `public/assets/` f
 
 
 # Dependencies
-
+* compass-rails (~> 1)
 * rails (~> 3.1)
 * jquery-rails (~> 1.0)
