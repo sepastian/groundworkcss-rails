@@ -23,5 +23,5 @@ Gem::Specification.new do |s|
   # s.add_runtime_dependency "rest-client"
   s.add_runtime_dependency "railties", ">= 3.1.0", "< 4.0"
   s.add_runtime_dependency "compass-rails"
-  s.add_runtime_dependency "jquery-rails", "~> 1"
+  s.add_runtime_dependency "jquery-rails", "~> 3"
 end
