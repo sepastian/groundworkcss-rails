@@ -4,7 +4,7 @@ require "groundworkcss/version"
 
 Gem::Specification.new do |s|
   s.name        = "groundworkcss"
-  s.version     = GroundworkCSS::VERSION
+  s.version     = Groundworkcss::VERSION
   s.authors     = ["ghepting", "BananaNeil", "nicknovitski", "ldewald"]
   s.email       = ["groundwork@sidereel.com"]
   s.homepage    = "http://groundworkcss.github.io"

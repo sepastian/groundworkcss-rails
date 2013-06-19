@@ -1,7 +1,7 @@
 require "groundworkcss/version"
 require "groundworkcss/generators/install_generator"
 
-module GroundworkCSS
+module Groundworkcss
   require "groundworkcss/engine"
   require "groundworkcss/railties"
 end
