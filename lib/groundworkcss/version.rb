@@ -1,3 +1,3 @@
-module GroundworkCss
+module Groundworkcss
   VERSION = "1.2.0"
 end
