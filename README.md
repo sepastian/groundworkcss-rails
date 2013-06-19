@@ -25,6 +25,7 @@ Inside your Gemfile add the following line:
 
 ```ruby
 group :assets do
+  gem 'compass-rails'
   gem 'groundworkcss', :git => 'git://github.com/groundworkcss/groundworkcss-rails.git'
 end
 ```
