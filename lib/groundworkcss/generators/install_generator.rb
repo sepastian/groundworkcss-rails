@@ -7,7 +7,7 @@ module Groundworkcss
 
       def add_assets
         insert_into_file "app/assets/javascripts/application#{detect_js_format[0]}", "#{detect_js_format[1]} require groundworkcss\n", :after => "jquery_ujs\n"
-        insert_into_file "app/assets/stylesheets/application#{detect_css_format[0]}", "@import 'groundworkcss/groundwork';\n", :after => "*/\n"
+        insert_into_file "app/assets/stylesheets/application#{detect_css_format[0]}", "@import 'groundwork_settings';\n@import 'groundworkcss/groundwork';\n", :after => "*/\n"
       end
 
       def detect_js_format
