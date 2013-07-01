@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["groundwork@sidereel.com"]
   s.homepage    = "http://groundworkcss.github.io"
   s.summary     = %q{Setup GroundworkCSS on your rails projects in seconds.}
-  s.description = %q{GroundworkCSS is a fully responsive HTML5, CSS and Javascript toolkit created by @ghepting.}
+  s.description = %q{The official GroundworkCSS rails gem. Created by @ghepting and @ldewald. GroundworkCSS is a fully responsive HTML5, CSS and Javascript toolkit created by @ghepting.}
 
   s.rubyforge_project = "groundworkcss"
 
@@ -22,6 +22,6 @@ Gem::Specification.new do |s|
   # s.add_development_dependency "rspec"
   # s.add_runtime_dependency "rest-client"
   s.add_runtime_dependency "compass-rails", "~> 1"
-  s.add_runtime_dependency "railties", ">= 3.1.0", "< 4.0"
+  s.add_runtime_dependency "railties", "~> 4"
   s.add_runtime_dependency "jquery-rails", "~> 3"
 end
