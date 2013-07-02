@@ -1,8 +1,8 @@
 /*
- *= require 'groundworkcss/plugins/jquery-modals'
  *= require 'groundworkcss/plugins/jquery-responsiveTables'
  *= require 'groundworkcss/plugins/jquery-responsiveText'
  *= require 'groundworkcss/plugins/jquery-tooltip'
+ *= require 'groundworkcss/plugins/jquery-truncateLines'
  *= require 'groundworkcss/plugins/jquery.cycle2'
  *= require 'groundworkcss/plugins/jquery.magnific-popup'
  *= require 'groundworkcss/components/disabled'
