@@ -66,12 +66,14 @@ Add the following to the `<head>` section in your layout file (i.e. `app/views/l
 ```html
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <%= stylesheet_link_tag("application", :media => "screen") %>
   <!--[if IE]>
   <link type="text/css" rel="stylesheet" href="/assets/groundworkcss/groundwork-ie.css">
   <![endif]-->
   <!--[if IE 7]>
   <link type="text/css" rel="stylesheet" href="/assets/groundworkcss/font-awesome-ie7.min.css">
   <![endif]-->
+  <%= javascript_include_tag("application") %>
   <script type="text/javascript">
     // SVG support?
     Modernizr.load({
