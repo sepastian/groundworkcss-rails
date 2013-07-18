@@ -5,9 +5,17 @@ module Groundworkcss
     class InstallGenerator < Rails::Generators::Base
       source_root File.join(File.dirname(__FILE__), 'templates')
 
+      def create_example_settings
+        dir = Pathname.new(Gem.loaded_specs['groundworkcss'].full_gem_path)
+        file = File.join(dir, "app/assets/stylesheets/groundworkcss/_settings-rails#{Rails::VERSION::MAJOR}.scss")
+        create_file "app/assets/stylesheets/_groundworkcss_settings.scss", File.read(file)
+      end
+
       def add_assets
-        insert_into_file "app/assets/javascripts/application#{detect_js_format[0]}", "#{detect_js_format[1]} require groundworkcss\n", :after => "jquery_ujs\n"
-        insert_into_file "app/assets/stylesheets/application#{detect_css_format[0]}", "@import 'groundworkcss/groundwork';\n", :after => "*/\n"
+        insert_into_file "app/assets/javascripts/application#{detect_js_format[0]}", "#{detect_js_format[1]} require groundworkcss/libs/modernizr-2.6.2.min\n", :after => "jquery_ujs\n"
+        insert_into_file "app/assets/javascripts/application#{detect_js_format[0]}", "#{detect_js_format[1]} require groundworkcss\n", :after => "groundworkcss/libs/modernizr-2.6.2.min\n"
+        insert_into_file "app/assets/stylesheets/application#{detect_css_format[0]}", "@import 'groundworkcss_settings';\n", :after => "*/\n"
+        insert_into_file "app/assets/stylesheets/application#{detect_css_format[0]}", "@import 'groundworkcss/groundwork';\n", :after => "@import 'groundworkcss_settings';\n"
       end
 
       def detect_js_format
