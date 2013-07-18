@@ -39,6 +39,32 @@ You can add `require "groundworkcss"` to your javascripts sprockets file(s):
 //= require "groundworkcss"
 ```
 
+### Setup custom settings file
+
+Now you have everything installed, but need to copy the example settings file to setup customizations, such as asset paths, colors and all other configurations.
+
+- Copy or rename `_groundwork_settings.scss.example` to `_groundwork_settings.scss`
+
+- Setup the asset paths on Rails 3:
+
+```scss
+$root_path:           "/assets/";
+$images_path:         asset-path("", image);
+$fonts_path:          'groundworkcss/';
+$boxsizing_path:      asset-path("groundworkcss/libs/boxsizing.htc", javascript);
+$PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
+```
+
+- Setup the asset paths on Rails 4:
+
+```scss
+$root_path:           "./";
+$images_path:         asset-path("images/");
+$fonts_path:          font-path("");
+$boxsizing_path:      asset-path("groundworkcss/libs/boxsizing.htc");
+$PIE_path:            asset-path("groundworkcss/libs/PIE.htc");
+```
+
 ### Advanced
 
 Alternatively, you may be more selective about which modules to use and can selectively add stylesheets and javascripts to your project:
@@ -46,9 +72,9 @@ Alternatively, you may be more selective about which modules to use and can sele
 **in application.css**
 
 ```css
-@import "groundworkcss/groundwork/core/all";
-@import "groundworkcss/groundwork/base/all";
-@import "groundworkcss/groundwork/type/all";
+@import "groundworkcss/groundwork/core/all-core";
+@import "groundworkcss/groundwork/base/all-base";
+@import "groundworkcss/groundwork/type/all-type";
 ```
 
 **in application.js**
@@ -66,32 +92,32 @@ Add the following to the `<head>` section in your layout file (i.e. `app/views/l
 ```html
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-  <!-- Modernizr -->
-  <script src="#{asset-path("libs/modernizr-2.6.2.min.js", javascript)}"></script>
-  <!-- framework css -->
+  <%= stylesheet_link_tag("application", :media => "screen") %>
   <!--[if IE]>
-  <link type="text/css" rel="stylesheet" href="/css/groundwork-ie.css">
-  <![endif]-->
-  <!--[if lt IE 9]>
-  <script type="text/javascript" src="/js/libs/html5shiv.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="/assets/groundworkcss/groundwork-ie.css">
   <![endif]-->
   <!--[if IE 7]>
-  <link type="text/css" rel="stylesheet" href="/css/font-awesome-ie7.min.css">
+  <link type="text/css" rel="stylesheet" href="/assets/groundworkcss/font-awesome-ie7.min.css">
   <![endif]-->
+  <%= javascript_include_tag("application") %>
   <script type="text/javascript">
-    // fallback if SVG unsupported
+    // SVG support?
     Modernizr.load({
       test: Modernizr.inlinesvg,
+      yep: [
+        "/assets/groundworkcss/social-icons-svg.css"
+      ],
       nope: [
-        '#{asset-path("no-svg.css")}'
+        "/assets/groundworkcss/social-icons-png.css",
+        "/assets/sidereel-ie/svg-to-png.js"
       ]
     });
-    // polyfill for HTML5 placeholders
+    // HTML5 placeholder support?
     Modernizr.load({
       test: Modernizr.input.placeholder,
       nope: [
-        '#{asset-path("placeholder_polyfill.css")}',
-        '#{asset-path("libs/placeholder_polyfill.jquery.js", javascript)}'
+        '/assets/groundworkcss/placeholder_polyfill.css',
+        '/assets/groundworkcss/libs/placeholder_polyfill.jquery.js'
       ]
     });
   </script>
