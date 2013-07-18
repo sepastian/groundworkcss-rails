@@ -39,32 +39,6 @@ You can add `require "groundworkcss"` to your javascripts sprockets file(s):
 //= require "groundworkcss"
 ```
 
-### Setup custom settings file
-
-Now you have everything installed, but need to copy the example settings file to setup customizations, such as asset paths, colors and all other configurations.
-
-- Copy or rename `_groundwork_settings.scss.example` to `_groundwork_settings.scss`
-
-- Setup the asset paths on Rails 3:
-
-```scss
-$root_path:           "/assets/";
-$images_path:         asset-path("", image);
-$fonts_path:          'groundworkcss/';
-$boxsizing_path:      asset-path("groundworkcss/libs/boxsizing.htc", javascript);
-$PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
-```
-
-- Setup the asset paths on Rails 4:
-
-```scss
-$root_path:           "./";
-$images_path:         asset-path("images/");
-$fonts_path:          font-path("");
-$boxsizing_path:      asset-path("groundworkcss/libs/boxsizing.htc");
-$PIE_path:            asset-path("groundworkcss/libs/PIE.htc");
-```
-
 ### Advanced
 
 Alternatively, you may be more selective about which modules to use and can selectively add stylesheets and javascripts to your project:
