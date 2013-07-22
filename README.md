@@ -14,6 +14,15 @@ group :assets do
 end
 ```
 
+Rails 4
+----
+
+@ghepting: I've noticed that `compass-rails` doesn't propertly support Rails 4 yet, so I've been using the edge version of @milgner's fork, which seems to work well. Use at your own risk.
+
+```ruby
+gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
+```
+
 Then run `bundle install` to install the gem.
 
 ## And then?
