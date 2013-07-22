@@ -14,7 +14,7 @@ group :assets do
 end
 ```
 
-Also, if not already done, you will need to enable therubyracer to support coffeescript. Uncomment this line in your Gemfile:
+Note, you will need to have therubyracer enabled in order to support Coffeescript. Ensure that this line is uncommented in your Gemfile:
 ```
 gem 'therubyracer', :platforms => :ruby
 ```
@@ -22,20 +22,27 @@ gem 'therubyracer', :platforms => :ruby
 Rails 4
 ----
 
-@ghepting: I've noticed that `compass-rails` doesn't propertly support Rails 4 yet, so I've been using the edge version of @milgner's fork, which seems to work well. Use at your own risk.
+Note: @ghepting: I've noticed that `compass-rails` doesn't propertly support Rails 4 yet, so I've been using the edge version of @milgner's fork, which seems to work well. Use at your own risk.
 
 ```ruby
 gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
 ```
 
+
 Then run `bundle install` to install the gem.
 
-## And then?
+## Include GroundworkCSS in your manifest file(s):
 
 If you want to include GroundworkCSS on all of your pages then run the following to append `groundworkcss` to your application sprockets files:
 
 ```bash
-bundle exec rails g groundworkcss:install
+$ bundle exec rails g groundworkcss:install
+```
+
+If necessary, rename your `application.css` to `application.scss` to enable Sass compilation.
+
+```bash
+$ mv app/assets/stylesheets/application.{css,scss}
 ```
 
 You can also manually include `groundworkcss` on individual pages:
@@ -59,7 +66,7 @@ Alternatively, you may be more selective about which modules to use and can sele
 
 **in application.css**
 
-```css
+```scss
 @import "groundworkcss/groundwork/core/all-core";
 @import "groundworkcss/groundwork/base/all-base";
 @import "groundworkcss/groundwork/type/all-type";
