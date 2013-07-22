@@ -14,6 +14,11 @@ group :assets do
 end
 ```
 
+Also, if not already done, you will need to enable therubyracer to support coffeescript. Uncomment this line in your Gemfile:
+```
+gem 'therubyracer', :platforms => :ruby
+```
+
 Rails 4
 ----
 
