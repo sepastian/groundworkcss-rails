@@ -36,7 +36,7 @@ Then run `bundle install` to install the gem.
 If you want to include GroundworkCSS on all of your pages then run the following to append `groundworkcss` to your application sprockets files:
 
 ```bash
-bundle exec rails g groundworkcss:install
+$ bundle exec rails g groundworkcss:install
 ```
 
 If necessary, rename your `application.css` to `application.scss` to enable Sass compilation.
@@ -66,7 +66,7 @@ Alternatively, you may be more selective about which modules to use and can sele
 
 **in application.css**
 
-```css
+```scss
 @import "groundworkcss/groundwork/core/all-core";
 @import "groundworkcss/groundwork/base/all-base";
 @import "groundworkcss/groundwork/type/all-type";
