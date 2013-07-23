@@ -8,10 +8,8 @@ Add GroundworkCSS to your rails project.
 Inside your Gemfile add the following lines:
 
 ```ruby
-group :assets do
-  gem 'compass-rails'
-  gem 'groundworkcss'
-end
+gem 'compass-rails'
+gem 'groundworkcss'
 ```
 
 Note, you will need to have therubyracer enabled in order to support Coffeescript. Ensure that this line is uncommented in your Gemfile:
