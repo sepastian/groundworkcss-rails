@@ -17,17 +17,13 @@ Note, you will need to have therubyracer enabled in order to support Coffeescrip
 gem 'therubyracer', :platforms => :ruby
 ```
 
-Rails 4
-----
+Then run `bundle install` to install the gem.
 
-Note: @ghepting: I've noticed that `compass-rails` doesn't propertly support Rails 4 yet, so I've been using the edge version of @milgner's fork, which seems to work well. Use at your own risk.
+Note from @ghepting: I've noticed that in Rails 4 that `compass-rails` isn't working properly yet, so I've been using the edge version of @milgner's fork, which seems to work well. Use at your own risk.  :)
 
 ```ruby
 gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
 ```
-
-
-Then run `bundle install` to install the gem.
 
 ## Include GroundworkCSS in your manifest file(s):
 
@@ -37,7 +33,7 @@ If you want to include GroundworkCSS on all of your pages then run the following
 $ bundle exec rails g groundworkcss:install
 ```
 
-If necessary, rename your `application.css` to `application.scss` to enable Sass compilation.
+If necessary, rename `application.css` to `application.scss` to enable Sass compilation.
 
 ```bash
 $ mv app/assets/stylesheets/application.{css,scss}
@@ -52,7 +48,7 @@ javascript_include_tag "groundworkcss"
 
 You can add `require "groundworkcss"` to your javascripts sprockets file(s):
 
-**in application.js**  
+**in application.js**
 
 ```javascript
 //= require "groundworkcss"
@@ -78,7 +74,7 @@ Alternatively, you may be more selective about which modules to use and can sele
 //= require "groundworkcss/jquery.magnific-popup"
 ```
 
-### Setup your layout with the Groundwork boilerplate
+### Setup your layout with the GroundworkCSS boilerplate
 
 Add the following to the `<head>` section in your layout file (i.e. `app/views/layouts/application.html.erb`)
 
@@ -119,7 +115,7 @@ Add the following to the `<head>` section in your layout file (i.e. `app/views/l
 
 # Using GroundworkCSS in production
 
-Before pushing your application to production, you'll need to determine how you want your assets served.  You can either compile them on-the-fly or precompile them (recommended).  Before continuing you'll want to check your Rails application Gemfile and ensure that `gem 'groundworkcss', :git => 'git://github.com/groundworkcss/groundworkcss-rails.git'` is included in the `assets` group.
+Before pushing your application to production, you'll need to determine how you want your assets served.  You can either compile them on-the-fly or precompile them (recommended).  Before continuing you'll want to check your Rails application Gemfile and ensure that `gem 'groundworkcss'` is included in the `assets` group.
 
 ## To compile on-the-fly
 
