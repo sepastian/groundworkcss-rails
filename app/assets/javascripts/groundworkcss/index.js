@@ -12,9 +12,6 @@
  *= require 'groundworkcss/components/menus'
  *= require 'groundworkcss/components/modals'
  *= require 'groundworkcss/components/pagination'
- *= require 'groundworkcss/components/responsiveTables'
- *= require 'groundworkcss/components/responsiveText'
  *= require 'groundworkcss/components/tabs'
  *= require 'groundworkcss/components/tiles'
- *= require 'groundworkcss/components/tooltips'
  */
