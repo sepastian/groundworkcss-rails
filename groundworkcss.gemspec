@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["groundwork@sidereel.com"]
   s.homepage    = "http://groundworkcss.github.io"
   s.summary     = %q{Setup GroundworkCSS on your rails projects in seconds.}
-  s.description = %q{The official GroundworkCSS rails gem. Created by @ghepting and @ldewald. GroundworkCSS is a fully responsive HTML5, CSS and Javascript toolkit created by @ghepting.}
+  s.description = %q{The official GroundworkCSS rails gem. Created by @ghepting and @ldewald. GroundworkCSS is a fully responsive HTML5, CSS and Javascript toolkit created by @ghepting. Note: If your app is still using GroundworkCSS 1.13.1, specify version "~0.4.3" of the `groundworkcss` gem in your Gemfile!}
   s.license = "MIT"
 
   s.rubyforge_project = "groundworkcss"
@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency "compass-rails", "~> 1"
-  s.add_runtime_dependency "railties", ">= 3.1.0", "< 5.0"
+  s.add_runtime_dependency "autoprefixer-rails", "~> 0.7"
   s.add_runtime_dependency "jquery-rails", "~> 3"
 end

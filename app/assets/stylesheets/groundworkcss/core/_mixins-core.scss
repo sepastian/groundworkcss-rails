@@ -1,9 +1,9 @@
 // =============================================
 //              Global Mixins
-//          Last Updated:2013-4-24
+//          Last Updated:2013-8-16
 // =============================================
 
-
+$font-family: Helvetica, Arial, Geneva, sans-serif !default;
 
 
 ///////////////////////
@@ -64,28 +64,16 @@
 
 // filter drop shadow
 @mixin filter-shadow($color: rgba(0,0,0,0.2), $blur: 0, $x: 0, $y: 0) {
-  -ms-filter: drop-shadow($x $y $blur $color);                          // IE9+
-  -o-filter: drop-shadow($x $y $blur $color);                           // Opera
-  -moz-filter: drop-shadow($x $y $blur $color);                         // Firefox
-  -webkit-filter: drop-shadow($x $y $blur $color);                      // Webkit (Safari, Chrome, other)
   filter: drop-shadow($x $y $blur $color);
   @media #{$retina} {
-    -ms-transform: translateZ(0);                                       // make filter nice and crisp on retina devices
-    -o-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -webkit-transform: translateZ(0);
     transform: translateZ(0);
   }
 }
 
 // inner box shadow
 @mixin inner-shadow($color, $blur: 0, $x: 0, $y: 0) {
-  -ms-box-shadow: inset $x $y $blur $color;                             // IE10+
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=#{$blur}, Direction=135, Color='#{ie-hex-str($color)}')";  // IE8
   filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=#{$blur}, Direction=135, Color='#{ie-hex-str($color)}')";      // IE7-
-  -o-box-shadow: inset $x $y $blur $color;                              // Opera
-  -moz-box-shadow: inset $x $y $blur $color;                            // Firefox
-  -webkit-box-shadow: inset $x $y $blur $color;                         // Webkit (Safari, Chrome, other)
   box-shadow: inset $x $y $blur $color;
 }
 
@@ -102,27 +90,29 @@
       $color: $warning-color;
     }@else if $state == "error" {
       $color: $error-color;
+    }@else if $state == "question" {
+      $color: $question-color;
     }
   }
-  color: lighten($color, 35%);
+  color: lighten($color, 25%);
   @if $mode != "textOnly" {
   background: lighten($color, 15%);
-  border-color: $color;
+  border-color: lighten($color, 10%);
   }
   @if $state == "disabled" {
   cursor: not-allowed;
   text-decoration: none;
   outline: none;
-    &:hover, &:focus, &:visited {
-      color: lighten($color, 35%);
-      @if $mode != "textOnly" {
-      background: lighten($color, 15%);
-      border-color: $color;
-      }
-      cursor: not-allowed;
-      text-decoration: none;
-      outline: none;
-    }
+    // &:hover, &:focus, &:visited {
+    //   color: lighten($color, 35%);
+    //   @if $mode != "textOnly" {
+    //   background: lighten($color, 15%);
+    //   border-color: $color;
+    //   }
+    //   cursor: not-allowed;
+    //   text-decoration: none;
+    //   outline: none;
+    // }
   }
 }
 
@@ -139,22 +129,6 @@
     @include border-radius($radius);
     *behavior: url($PIE_path);  // IE 6-7  -- Thank Jason for these polyfills for legacy IE browsers: http://css3pie.com/
   }
-}
-
-// animations
-@mixin animation($animation: spin, $count: infinite, $speed: 2s, $easing: linear) {
-  -moz-animation: $animation $speed $easing;
-  -moz-animation-iteration-count: $count;
-  -o-animation: $animation $speed $easing;
-  -o-animation-iteration-count: $count;
-  -webkit-animation: $animation $speed $easing;
-  -webkit-animation-iteration-count: $count;
-  animation: $animation $speed $easing;
-  animation-iteration-count: $count;
-}
-// deprecated, use animation() now instead
-@mixin spin($count: infinite, $speed: 2s) {
-  @include animation(spin, $count, $speed);
 }
 
 
