@@ -19,8 +19,10 @@ module Groundworkcss
           insert_into_file js_file, "#{detect_js_format[1]} require groundworkcss/libs/modernizr-2.6.2.min\n", :after => "jquery_ujs\n"
           insert_into_file js_file, "#{detect_js_format[1]} require groundworkcss/all\n", :after => "groundworkcss/libs/modernizr-2.6.2.min\n"
         else
-          puts 'Cannot locate "application.js" or "application(.js).coffee" manifest file for writing...'
-          puts 'You will need to add the following to your javascript manifest file manually:\n\n//= require groundworkcss/libs/modernizr-2.6.2.min\n//= require groundworkcss/all'
+          puts ['Cannot locate "application.js" or "application(.js).coffee" manifest file for writing...',
+                'You will need to add the following to your javascript manifest file manually:',
+                '//= require groundworkcss/libs/modernizr-2.6.2.min',
+                '//= require groundworkcss/all']
         end
 
         if File.exists?(css_file)
@@ -31,8 +33,10 @@ module Groundworkcss
             File.rename(css_file, css_file + '.scss')
           end
         else
-          puts 'Cannot locate "application.css", "application(.css).scss" or "application(.css).sass" manifest file for writing...'
-          puts 'You will need to add the following to your stylesheet manifest file manually:\n\n@import \'groundwork_settings\';\n@import \'groundworkcss/groundwork\';'
+          puts ['Cannot locate "application.css", "application(.css).scss" or "application(.css).sass" manifest file for writing...',
+                'You will need to add the following to your stylesheet manifest file manually:',
+                '@import \'groundwork_settings\';',
+                '@import \'groundworkcss/groundwork\';']
         end
       end
 
