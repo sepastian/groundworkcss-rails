@@ -4,14 +4,14 @@ Setup assets and create boilerplate layout for GroundworkCSS
 `rails g groundworkcss:install`
 
 Inserts required lines into application manifest files:
-  /app/assets/javascripts/application.{js,coffee}
-  /app/assets/stylesheets/application.{css,scss}
+  `/app/assets/javascripts/application.{js,coffee}`
+  `/app/assets/stylesheets/application.{css,scss}`
 
 Creates boilerplate layout:
-  /app/views/layouts/application.html.erb
+  `/app/views/layouts/application.html.erb`
 
 Creates Groundwork settings file:
-  /app/assets/stylesheets/_groudnwork_settings.scss
+  `/app/assets/stylesheets/_groundwork_settings.scss`
 
 
 Add GroundworkCSS documentation files (great for testing, too)
