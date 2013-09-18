@@ -20,6 +20,7 @@ module Groundworkcss
           insert_into_file js_file, "#{detect_js_format[1]} require groundworkcss/all\n", :after => "groundworkcss/libs/modernizr-2.6.2.min\n"
         else
           puts 'Cannot locate "application.js" or "application(.js).coffee" manifest file for writing...'
+          puts 'You will need to add the following to your javascript manifest file manually:\n\n//= require groundworkcss/libs/modernizr-2.6.2.min\n//= require groundworkcss/all'
         end
 
         if File.exists?(css_file)
@@ -31,6 +32,7 @@ module Groundworkcss
           end
         else
           puts 'Cannot locate "application.css", "application(.css).scss" or "application(.css).sass" manifest file for writing...'
+          puts 'You will need to add the following to your stylesheet manifest file manually:\n\n@import \'groundwork_settings\';\n@import \'groundworkcss/groundwork\';'
         end
       end
 
@@ -38,6 +40,7 @@ module Groundworkcss
         return ['.js', '//='] if File.exist?('app/assets/javascripts/application.js')
         return ['.js.coffee', '#='] if File.exist?('app/assets/javascripts/application.js.coffee')
         return ['.coffee', '#='] if File.exist?('app/assets/javascripts/application.coffee')
+        return ['', '']
       end
 
       def detect_css_format
@@ -46,6 +49,7 @@ module Groundworkcss
         return ['.css.scss'] if File.exist?('app/assets/stylesheets/application.css.scss')
         return ['.sass'] if File.exist?('app/assets/stylesheets/application.sass')
         return ['.scss'] if File.exist?('app/assets/stylesheets/application.scss')
+        return ['']
       end
     end
   end
