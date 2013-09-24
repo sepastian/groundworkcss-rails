@@ -197,4 +197,5 @@ By default assets that are precompiled will be located in the `public/assets/` f
 # Dependencies
 * compass-rails (~> 1)
 * rails (~> 3.1)
-* jquery-rails (~> 1.0)
+* jquery-rails (~> 3)
+* autoprefixer-rails (~> 0.7)
