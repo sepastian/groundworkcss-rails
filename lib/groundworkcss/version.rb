@@ -1,3 +1,3 @@
 module Groundworkcss
-  VERSION = "2.0.4"
+  VERSION = "2.0.7"
 end
