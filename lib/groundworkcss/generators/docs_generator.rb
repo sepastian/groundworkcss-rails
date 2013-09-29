@@ -22,22 +22,22 @@ module Groundworkcss
 
         run generator_command
 
-        routes_file = "config/routes.rb"
-        insert_into_file routes_file, "\n  if Rails.env.development?\n", :before => "  get \"groundworkdocs/animations\"\n"
-        insert_into_file routes_file, "\n  end\n\n", :after => "  get \"groundworkdocs/typography\"\n"
-        content = ''
-        File.open(routes_file, "r") do |file|
-          file.each_line do |line|
-            if line.include? "groundworkdocs/"
-              content << '    ' + line.lstrip
-            else
-              content << line
-            end
-          end
-        end
-        File.open(routes_file, "w") do |file|
-          file.write(content)
-        end
+        #routes_file = "config/routes.rb"
+        #insert_into_file routes_file, "\n  if Rails.env.development?\n", :before => "  get \"groundworkdocs/animations\"\n"
+        #insert_into_file routes_file, "\n  end\n\n", :after => "  get \"groundworkdocs/typography\"\n"
+        #content = ''
+        #File.open(routes_file, "r") do |file|
+          #file.each_line do |line|
+            #if line.include? "groundworkdocs/"
+              #content << '    ' + line.lstrip
+            #else
+              #content << line
+            #end
+          #end
+        #end
+        #File.open(routes_file, "w") do |file|
+          #file.write(content)
+        #end
 
         insert_into_file "app/controllers/groundworkdocs_controller.rb", "layout 'groundworkdocs'\n\n", :after => "class GroundworkdocsController < ApplicationController\n"
 

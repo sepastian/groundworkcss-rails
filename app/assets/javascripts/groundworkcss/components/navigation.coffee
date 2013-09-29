@@ -22,13 +22,18 @@ class ResponsiveNavigation
   init: ->
     @defaultLabel()
     @setupMarkers()
-    @hamburgerHelper()
+    unless @el.hasClass('nocollapse')
+      @hamburgerHelper()
 
   defaultLabel: ->
-    if @el.attr('title') == undefined
-      @el.attr('title', 'Menu')
+    unless @el.hasClass('nocollapse')
+      @el.attr('title', 'Menu') if @el.attr('title') == undefined
 
   setupMarkers: ->
+    @el.find('ul').each ->
+      if $(@).find('li').length
+        $(@).attr('role', 'menu')
+    @el.find('> ul').attr('role', 'menubar') unless $(@el).hasClass('vertical')
     @el.find('li').each ->
       if $(@).find('ul').length
         $(@).attr('role', 'menu')
@@ -39,7 +44,10 @@ class ResponsiveNavigation
 $ ->
 
   mouseBindings = -> # needs more <3
-    $('body').on 'mouseenter', '.nav li[role="menu"]', (e) ->
+    $('body').on 'mouseenter', '.nav:not(.vertical) li[role="menu"]', (e) ->
+      $('.nav:not(.vertical)').not(@).each ->
+        unless $(@).find('button.hamburger').is(':visible')
+          $(@).find('ul[aria-expanded="true"]').attr('aria-expanded', 'false')
       unless $(@).parents('.nav').find('button.hamburger').is(':visible')
         clearTimeout(window.delayMenuClose)
         expandedSiblings = $(@).siblings().find('ul[aria-expanded="true"]')
@@ -47,7 +55,7 @@ $ ->
         targetMenu = $(e.target).parents('li[role="menu"]').children('ul')
         targetMenu.attr('aria-expanded', 'true')
 
-    $('body').on 'mouseleave', '.nav li[role="menu"]', (e) ->
+    $('body').on 'mouseleave', '.nav:not(.vertical) li[role="menu"]', (e) ->
       unless $(@).parents('.nav').find('button.hamburger').is(':visible')
         window.delayMenuClose = setTimeout( =>
           $(@).find('ul[aria-expanded="true"]').attr('aria-expanded', 'false')

@@ -41,7 +41,14 @@
 
     <header class="padded">
       <div class="container">
-        <h2 class="logo"><a href="./home.html" target="_parent"><%= image_tag('groundworkcss/groundwork-logo.svg', :alt => "GroundworkCSS") %>GroundworkCSS 2</a></h2>
+        <div class="row">
+          <div class="one half">
+            <h2 class="logo"><a href="./home.html" target="_parent"><%= image_tag('groundworkcss/groundwork-logo.svg', :alt => "GroundworkCSS") %>GroundworkCSS 2</a></h2>
+          </div>
+          <div class="one half">
+            <p class="small double pad-top no-pad-small-tablet align-right align-left-small-tablet"><a href="https://github.com/groundworkcss/groundwork" target="_parent">Github Project</a> - Version <%= Groundworkcss::VERSION %><br>Created & Maintained by <a href="http://twitter.com/ghepting" target="_blank">Gary Hepting</a></p>
+          </div>
+        </div>
         <nav role="navigation" class="nav gap-top">
           <ul role="menubar">
             <li><a href="./home.html"><i class="icon-home"></i> Home</a></li>

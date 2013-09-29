@@ -4,6 +4,7 @@
 // =============================================
 
 $font-family: Helvetica, Arial, Geneva, sans-serif !default;
+$oldIE: false !default;
 
 
 ///////////////////////
@@ -87,10 +88,10 @@ $font-family: Helvetica, Arial, Geneva, sans-serif !default;
   // works with compass 0.12
   @include background-image(linear-gradient($old, $startColor, $endColor));
   background-image: linear-gradient($correct, $startColor, $endColor); // override with correct css3 syntax
-
-  // For poor old IE
-  -pie-background: linear-gradient($correct, $startColor, $endColor);  // IE 6-7  -- Thank Jason for these polyfills for legacy IE browsers: http://css3pie.com/
-  *behavior: url($PIE_path);  // IE 6-7  -- Thank Jason for these polyfills for legacy IE browsers: http://css3pie.com/
+  @if $oldIE {
+    -pie-background: linear-gradient($correct, $startColor, $endColor);  // IE 6-7  -- Thank Jason for these polyfills for legacy IE browsers: http://css3pie.com/
+    *behavior: url($PIE_path);  // IE 6-7  -- Thank Jason for these polyfills for legacy IE browsers: http://css3pie.com/
+  }
 }
 
 // filter drop shadow
@@ -134,16 +135,6 @@ $font-family: Helvetica, Arial, Geneva, sans-serif !default;
   cursor: not-allowed;
   text-decoration: none;
   outline: none;
-    // &:hover, &:focus, &:visited {
-    //   color: lighten($color, 35%);
-    //   @if $mode != "textOnly" {
-    //   background: lighten($color, 15%);
-    //   border-color: $color;
-    //   }
-    //   cursor: not-allowed;
-    //   text-decoration: none;
-    //   outline: none;
-    // }
   }
 }
 
@@ -164,7 +155,7 @@ $font-family: Helvetica, Arial, Geneva, sans-serif !default;
 
 // responsive navigation
 @mixin hamburger-mode($filters: "") {
-    .nav#{$filters} {
+    .nav:not(.nocollapse)#{$filters} {
       &:before {
         float: left;
         display: inline-block;
@@ -186,6 +177,11 @@ $font-family: Helvetica, Arial, Geneva, sans-serif !default;
       }
       > ul {
         display: none;
+        > li {
+          > a, > button {
+            border-top-width: $border-thickness;
+          }
+        }
       }
       > ul[aria-expanded="true"] {
         display: block;
@@ -208,10 +204,13 @@ $font-family: Helvetica, Arial, Geneva, sans-serif !default;
         }
         &[role="menu"] {
           ul {
-            border: none;
-            a, button {
-              border-top: none;
-              border-bottom: $border-thickness $border-style $nav-border-color;
+            border: 0;
+            > li {
+              &:first-child {
+                > a, > button {
+                  border-top-width: $border-thickness;
+                }
+              }
             }
           }
           > a, > button {
@@ -233,22 +232,14 @@ $font-family: Helvetica, Arial, Geneva, sans-serif !default;
         display: block;
         width: 100%;
         text-align: left;
-        border-bottom: $border-thickness $border-style $nav-border-color;
       }
       @for $i from 1 through length($modifier-name) {
         &.#{nth($modifier-name, $i)} {
           li ul a, li[role="menu"] ul a, a,
           li ul button, li[role="menu"] ul button, button {
-            border-top: none;
-            border-bottom: $border-thickness $border-style darken(nth($modifier-code, $i), 5%);
             @include rounded(0);
           }
         }
-      }
-    }
-    > ul li:last-child {
-      a, button {
-        border-bottom: none;
       }
     }
 }
@@ -264,7 +255,9 @@ $font-family: Helvetica, Arial, Geneva, sans-serif !default;
     // no output if $default-radius is set to a zero value
   } @else {
     @include border-radius($radius);
-    *behavior: url($PIE_path);  // IE 6-7  -- Thank Jason for these polyfills for legacy IE browsers: http://css3pie.com/
+    @if $oldIE {
+      *behavior: url($PIE_path);  // IE 6-7  -- Thank Jason for these polyfills for legacy IE browsers: http://css3pie.com/
+    }
   }
 }
 
