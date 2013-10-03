@@ -1,6 +1,6 @@
 // =============================================
 //              Custom Settings
-//          Last Updated:2013-9-12
+//          Last Updated:2013-10-3
 // =============================================
 
 
@@ -15,6 +15,7 @@ $fonts_path:          'groundworkcss/';
 $boxsizing_path:      asset-path("groundworkcss/libs/boxsizing.htc", javascript);
 $PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
 
+// $oldIE:                     false; // enable polyfills for legacy IE
 
 // =============================================
 //                  Web Fonts
@@ -43,8 +44,8 @@ $PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
 //                 Color Palette
 // =============================================
 
-// $white:               #ffffff;
-// $black:               #111111;
+// $white:                     #ffffff;
+// $black:                     #111111;
 
 // document
 // $background-color:          #ffffff;
@@ -196,7 +197,7 @@ $PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
 // =============================================
 
 // flexible box layout
-// $flexbox-classes:           true; enable output of flexbox classes
+// $flexbox-classes:           true; // enable output of flexbox classes
 // $flexbox-helpers:           "flex-wrapper" "flex-box" "vertical-center";
 
 
@@ -247,7 +248,7 @@ $PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
 // $type-tags:                 true;
 // $type-elements:             "h1" "h2" "h3" "h4" "h5" "h6" "p"
 //                             "ul" "ol" "dl"
-//                             "q" "quote" "blockquote" "cite"
+//                             "q" "blockquote" "cite"
 //                             "small" "big"
 //                             "b" "strong"
 //                             "em"
@@ -258,7 +259,7 @@ $PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
 // $type-classes:              false;
 // $type-classnames:           "h1" "h2" "h3" "h4" "h5" "h6" "p"
 //                             "ul" "ol" "dl"
-//                             "q" "quote" "blockquote" "cite"
+//                             "q" "blockquote" "cite"
 //                             "small" "big" "large"
 //                             "b" "bold" "strong"
 //                             "em" "italic"
@@ -267,12 +268,16 @@ $PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
 //                             "code" "pre"
 //                             "invalid" "valid"
 //                             "unstyled";
+// $quote-color:               $font-color;
+// $quote-background:          $border-color;
+// $quote-font:                "source-sans-pro";
 // $styled-lists:              true;
 // $multi-column-classes:      true;
 // $multi-column-names:        "one-column" "two-column" "three-column" "four-column" "five-column";
 // $ui-states:                 "info"  "alert" "warning" "error" "success" "question";
 // $ui-icons:                  "\f05a" "\f06a" "\f071"   "\f057" "\f058"   "\f059";
 // $ui-states-colors:          $info-color $alert-color $warning-color $error-color $success-color $question-color;
+// $ui-states-color-classes:   true;
 // $font-family:               Helvetica, Arial, Geneva, sans-serif;
 // $font-size:                 14px;
 // $line-height:               1.5;
@@ -313,7 +318,7 @@ $PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
 //                             "center";
 // $typography-classes:        true;
 // $typography-helpers:        "align-top" "align-right" "align-bottom" "align-left" "align-center" "justify"
-//                             "truncate";
+//                             "truncate" "unstyled";
 // $border-classes:            true;
 // $border-helpers:            "bordered" "border-right" "border-left" "border-top" "border-bottom";
 // $radius-classes:            true;
@@ -334,7 +339,7 @@ $PIE_path:            asset-path("groundworkcss/libs/PIE.htc", javascript);
 //                             "h1" "h2" "h3" "h4" "h5" "h6" "p"
 //                             "ol" "ul" "li" "dl" "dt" "dd"
 //                             "em" "small" "big" "strong" "b" "u" "i" "sub" "sup" "del" "strike"
-//                             "q" "quote" "blockquote" "cite"
+//                             "q" "blockquote" "cite"
 //                             "time" "address"
 //                             "code" "pre"
 //                             "a" "img" "center" "hr"

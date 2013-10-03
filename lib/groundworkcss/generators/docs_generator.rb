@@ -22,28 +22,29 @@ module Groundworkcss
 
         run generator_command
 
-        #routes_file = "config/routes.rb"
-        #insert_into_file routes_file, "\n  if Rails.env.development?\n", :before => "  get \"groundworkdocs/animations\"\n"
-        #insert_into_file routes_file, "\n  end\n\n", :after => "  get \"groundworkdocs/typography\"\n"
-        #content = ''
-        #File.open(routes_file, "r") do |file|
-          #file.each_line do |line|
-            #if line.include? "groundworkdocs/"
-              #content << '    ' + line.lstrip
-            #else
-              #content << line
-            #end
-          #end
-        #end
-        #File.open(routes_file, "w") do |file|
-          #file.write(content)
-        #end
-
         insert_into_file "app/controllers/groundworkdocs_controller.rb", "layout 'groundworkdocs'\n\n", :after => "class GroundworkdocsController < ApplicationController\n"
+
+        if Rails::VERSION::MAJOR >= 4
+          rails_settings = [
+                            '$root_path:      "./";',
+                            '$images_path:    asset-path("images/");',
+                            '$fonts_path:     "groundworkcss/";',
+                            '$boxsizing_path: asset-path("groundworkcss/libs/boxsizing.htc");',
+                            '$PIE_path:       asset-path("groundworkcss/libs/PIE.htc");'
+                           ].join("\n")
+        else
+          rails_settings = [
+                            '$root_path:      "/assets/";',
+                            '$images_path:    asset-path("", image);',
+                            '$fonts_path:     "groundworkcss/";',
+                            '$boxsizing_path: asset-path("groundworkcss/libs/boxsizing.htc", javascript);',
+                            '$PIE_path:       asset-path("groundworkcss/libs/PIE.htc", javascript);'
+                           ].join("\n")
+        end
 
         css_file = "app/assets/stylesheets/groundworkdocs.css.scss"
         File.open(css_file, "w") do |file|
-          file.write("// GroundworkCSS 2 Documentation\n\n@import 'groundwork_settings';\n@import 'groundworkcss/groundwork';\n@import 'groundworkcss/demo/jquery.snippet';\n@import 'groundworkcss/demo/groundworkdocs';\n")
+          file.write("// GroundworkCSS 2 Documentation\n\n#{rails_settings}\n@import 'groundworkcss/groundwork';\n@import 'groundworkcss/demo/jquery.snippet';\n@import 'groundworkcss/demo/groundworkdocs';\n")
         end
 
         js_file = "app/assets/javascripts/groundworkdocs.js.coffee"
