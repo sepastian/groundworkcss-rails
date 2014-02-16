@@ -78,50 +78,50 @@ Alternatively, you may selectively choose which Groundwork modules to be include
 **in application.scss**
 
 ```scss
-@import "groundworkcss/groundwork/core/all-core";             // required
-@import "groundworkcss/groundwork/base/all-base";             // required
-@import "groundworkcss/groundwork/icons/all-icons";           // required
-@import "groundworkcss/groundwork/type/all-type";             // recommended
-@import "groundworkcss/groundwork/ui/all-ui";                 // optional
-@import "groundworkcss/groundwork/anim/all-animations";       // optional
-@import "groundworkcss/groundwork/responsive/all-responsive"; // recommended
+@import "groundworkcss/core/all-core";             // required
+@import "groundworkcss/base/all-base";             // required
+@import "groundworkcss/icons/all-icons";           // required
+@import "groundworkcss/type/all-type";             // recommended
+@import "groundworkcss/ui/all-ui";                 // optional
+@import "groundworkcss/anim/all-animations";       // optional
+@import "groundworkcss/responsive/all-responsive"; // recommended
 ```
 
 Expert users may be even more selective, however, it is best to control this level of optimization with the configurations in `_groundwork_settings.scss` as there are several complex dependancy chains that must be understood. Two modules that this can be easily done, however, are `ui` and `anim`.
 
 ```scss
-@import "groundworkcss/groundwork/core/all-core";             // required
-@import "groundworkcss/groundwork/base/all-base";             // required
-@import "groundworkcss/groundwork/icons/all-icons";           // required
-@import "groundworkcss/groundwork/type/all-type";             // recommended
+@import "groundworkcss/core/all-core";             // required
+@import "groundworkcss/base/all-base";             // required
+@import "groundworkcss/icons/all-icons";           // required
+@import "groundworkcss/type/all-type";             // recommended
 
 // UI Components
-@import "groundworkcss/groundwork/ui/boxes";                  // optional
-@import "groundworkcss/groundwork/ui/buttons";                // optional
-@import "groundworkcss/groundwork/ui/forms";                  // optional
-@import "groundworkcss/groundwork/ui/messages";               // optional
-@import "groundworkcss/groundwork/ui/nav";                    // optional
-@import "groundworkcss/groundwork/ui/tables";                 // optional
-@import "groundworkcss/groundwork/ui/tabs";                   // optional
+@import "groundworkcss/ui/boxes";                  // optional
+@import "groundworkcss/ui/buttons";                // optional
+@import "groundworkcss/ui/forms";                  // optional
+@import "groundworkcss/ui/messages";               // optional
+@import "groundworkcss/ui/nav";                    // optional
+@import "groundworkcss/ui/tables";                 // optional
+@import "groundworkcss/ui/tabs";                   // optional
 
 // Animations
-@import "groundworkcss/groundwork/anim/bounce";               // optional
-@import "groundworkcss/groundwork/anim/fade";                 // optional
-@import "groundworkcss/groundwork/anim/flash";                // optional
-@import "groundworkcss/groundwork/anim/flip";                 // optional
-@import "groundworkcss/groundwork/anim/hinge";                // optional
-@import "groundworkcss/groundwork/anim/lightspeed";           // optional
-@import "groundworkcss/groundwork/anim/pulse";                // optional
-@import "groundworkcss/groundwork/anim/roll";                 // optional
-@import "groundworkcss/groundwork/anim/rotate";               // optional
-@import "groundworkcss/groundwork/anim/shake";                // optional
-@import "groundworkcss/groundwork/anim/spin";                 // optional
-@import "groundworkcss/groundwork/anim/swing";                // optional
-@import "groundworkcss/groundwork/anim/tada";                 // optional
-@import "groundworkcss/groundwork/anim/wiggle";               // optional
-@import "groundworkcss/groundwork/anim/wobble";               // optional
+@import "groundworkcss/anim/bounce";               // optional
+@import "groundworkcss/anim/fade";                 // optional
+@import "groundworkcss/anim/flash";                // optional
+@import "groundworkcss/anim/flip";                 // optional
+@import "groundworkcss/anim/hinge";                // optional
+@import "groundworkcss/anim/lightspeed";           // optional
+@import "groundworkcss/anim/pulse";                // optional
+@import "groundworkcss/anim/roll";                 // optional
+@import "groundworkcss/anim/rotate";               // optional
+@import "groundworkcss/anim/shake";                // optional
+@import "groundworkcss/anim/spin";                 // optional
+@import "groundworkcss/anim/swing";                // optional
+@import "groundworkcss/anim/tada";                 // optional
+@import "groundworkcss/anim/wiggle";               // optional
+@import "groundworkcss/anim/wobble";               // optional
 
-@import "groundworkcss/groundwork/responsive/all-responsive"; // recommended
+@import "groundworkcss/responsive/all-responsive"; // recommended
 ```
 
 **in application.js**
