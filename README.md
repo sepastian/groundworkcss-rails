@@ -21,11 +21,7 @@ gem 'therubyracer', :platforms => :ruby
 
 Then run `bundle install` to install the gem.
 
-**Note from @ghepting:** I've found that `compass-rails` isn't working with Rails 4 quite yet, so I've been using an unofficial edge version. This fork by @milgner seems to work well, so I've setup [a fork on @groundworkcss](https://github.com/groundworkcss/compass-rails) for anyone else who likes to live on the bleeding edge. Use at your own risk.  :)
-
-```ruby
-gem 'compass-rails', github: 'groundworkcss/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
-```
+**Note from @sepastian** For Rails 4.1, just use the 'compass-rails' gem, which now officially supports Rails 4.1. (Previously, `groundworkcss/compass-rails` must be used.) This is probably true for Rails 4.x, too - can anyone verify this?
 
 ## Include GroundworkCSS in your manifest file(s):
 

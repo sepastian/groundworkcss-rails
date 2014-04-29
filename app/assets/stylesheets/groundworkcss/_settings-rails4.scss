@@ -10,7 +10,7 @@
 
 // file paths
 $root_path:           "./";
-$images_path:         asset-path("images/");
+$images_path:         asset-path("/images/");
 $fonts_path:          "groundworkcss/";
 $boxsizing_path:      asset-path("groundworkcss/libs/boxsizing.htc");
 $PIE_path:            asset-path("groundworkcss/libs/PIE.htc");
